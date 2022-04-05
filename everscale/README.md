@@ -1,1 +1,1 @@
-# bridge-tezos-test
+# bridge-everscale-smartcontracts
