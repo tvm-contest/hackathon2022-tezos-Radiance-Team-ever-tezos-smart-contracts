@@ -1,0 +1,272 @@
+{ parameter
+    (or (or (list %balance_of_callback
+               (pair (pair %request (address %owner) (nat %token_id)) (nat %balance)))
+            (pair %deposit_to_vault
+               (list %requests (pair (address %owner) (nat %token_id)))
+               (pair (nat %amt_for_deposit) (bytes %everscale_receiver))))
+        (pair %withdraw_from_vault (signature %signed_core) (bytes %signed_data))) ;
+  storage
+    (pair (pair (pair (address %deposit_addr_from) (nat %deposit_amt))
+                (pair (bytes %deposit_everscale_dest)
+                      (list %request (pair (address %owner) (nat %token_id)))))
+          (pair (pair (list %responce
+                         (pair (pair %request (address %owner) (nat %token_id)) (nat %balance)))
+                      (address %withdraw_addr))
+                (pair (nat %withdraw_amt) (bool %withdraw_sig_check)))) ;
+  code { PUSH address "KT1Ua1r4kEBUQ4vP546QyCc5WK6sadvesoPu" ;
+         SELF_ADDRESS ;
+         SWAP ;
+         DUP ;
+         DUG 2 ;
+         CONTRACT %balance_of
+           (pair (list %requests (pair (address %owner) (nat %token_id)))
+                 (contract %callback
+                    (list (pair (pair %request (address %owner) (nat %token_id)) (nat %balance))))) ;
+         IF_NONE { PUSH string "Token is not found" ; FAILWITH } {} ;
+         LAMBDA
+           (pair (pair (pair address address) (pair nat address)) nat)
+           operation
+           { UNPAIR ;
+             UNPAIR ;
+             UNPAIR ;
+             DIG 2 ;
+             UNPAIR ;
+             SWAP ;
+             CONTRACT %transfer
+               (list (pair (address %from_)
+                           (list %txs (pair (address %to_) (pair (nat %token_id) (nat %amount)))))) ;
+             IF_NONE { PUSH string "The entrypoint does not exist" ; FAILWITH } {} ;
+             PUSH mutez 0 ;
+             DIG 5 ;
+             DIG 3 ;
+             PAIR ;
+             DIG 4 ;
+             DIG 4 ;
+             DIG 2 ;
+             UNPAIR ;
+             NIL (pair address (list (pair address (pair nat nat)))) ;
+             NIL (pair address (pair nat nat)) ;
+             DIG 2 ;
+             DIG 3 ;
+             DIG 5 ;
+             PAIR 3 ;
+             CONS ;
+             DIG 2 ;
+             PAIR ;
+             CONS ;
+             TRANSFER_TOKENS } ;
+         DIG 4 ;
+         UNPAIR ;
+         IF_LEFT
+           { IF_LEFT
+               { DIG 3 ;
+                 DROP ;
+                 DUP ;
+                 IF_CONS { SWAP ; DROP ; SOME } { NONE (pair (pair address nat) nat) } ;
+                 IF_NONE { PUSH string "option is None" ; FAILWITH } {} ;
+                 DUP 3 ;
+                 CAR ;
+                 CAR ;
+                 CDR ;
+                 SWAP ;
+                 CDR ;
+                 COMPARE ;
+                 LT ;
+                 IF { PUSH string "Balance not enought" ; FAILWITH } {} ;
+                 PUSH nat 0 ;
+                 DIG 5 ;
+                 DUP 4 ;
+                 CAR ;
+                 CAR ;
+                 CDR ;
+                 PAIR ;
+                 DIG 5 ;
+                 DUP 5 ;
+                 CAR ;
+                 CAR ;
+                 CAR ;
+                 PAIR ;
+                 PAIR ;
+                 PAIR ;
+                 DIG 3 ;
+                 SWAP ;
+                 EXEC ;
+                 DUP 3 ;
+                 CDR ;
+                 CDR ;
+                 DUP 4 ;
+                 CDR ;
+                 CAR ;
+                 CDR ;
+                 DIG 3 ;
+                 PAIR ;
+                 PAIR ;
+                 DIG 2 ;
+                 CAR ;
+                 PAIR ;
+                 NIL operation ;
+                 DIG 2 ;
+                 CONS ;
+                 PAIR }
+               { DIG 2 ;
+                 DIG 5 ;
+                 DROP 2 ;
+                 DIG 3 ;
+                 CONTRACT %balance_of_callback
+                   (list (pair (pair %request (address %owner) (nat %token_id)) (nat %balance))) ;
+                 IF_NONE { PUSH string "The entrypoint does not exist" ; FAILWITH } {} ;
+                 DIG 3 ;
+                 PUSH mutez 0 ;
+                 DIG 2 ;
+                 DUP 4 ;
+                 CAR ;
+                 PAIR ;
+                 TRANSFER_TOKENS ;
+                 DUP 3 ;
+                 CDR ;
+                 DUP 3 ;
+                 CAR ;
+                 DUP 5 ;
+                 CAR ;
+                 CDR ;
+                 CAR ;
+                 PAIR ;
+                 DIG 4 ;
+                 CAR ;
+                 CAR ;
+                 PAIR ;
+                 PAIR ;
+                 DUP ;
+                 CDR ;
+                 SWAP ;
+                 DUP ;
+                 DUG 2 ;
+                 CAR ;
+                 CDR ;
+                 DUP 5 ;
+                 GET 3 ;
+                 DIG 3 ;
+                 CAR ;
+                 CAR ;
+                 CAR ;
+                 PAIR ;
+                 PAIR ;
+                 PAIR ;
+                 DUP ;
+                 CDR ;
+                 SWAP ;
+                 DUP ;
+                 DUG 2 ;
+                 CAR ;
+                 CDR ;
+                 DIG 2 ;
+                 CAR ;
+                 CAR ;
+                 CDR ;
+                 SENDER ;
+                 PAIR ;
+                 PAIR ;
+                 PAIR ;
+                 DUP ;
+                 CDR ;
+                 SWAP ;
+                 DUP ;
+                 DUG 2 ;
+                 CAR ;
+                 CDR ;
+                 CDR ;
+                 DIG 4 ;
+                 GET 4 ;
+                 PAIR ;
+                 DIG 2 ;
+                 CAR ;
+                 CAR ;
+                 PAIR ;
+                 PAIR ;
+                 NIL operation ;
+                 DIG 2 ;
+                 CONS ;
+                 PAIR } }
+           { DIG 3 ;
+             DROP ;
+             DUP ;
+             CDR ;
+             SWAP ;
+             DUP ;
+             DUG 2 ;
+             CAR ;
+             PUSH key "edpkvZs31XvfRjqDAkcCLVLxLbvE8aYMpDCTKf2yaFdeBk7YhmRjne" ;
+             CHECK_SIGNATURE ;
+             PUSH bool False ;
+             SWAP ;
+             DUP ;
+             DUG 2 ;
+             COMPARE ;
+             EQ ;
+             IF { PUSH string "Check signature not success" ; FAILWITH } {} ;
+             SWAP ;
+             CDR ;
+             UNPACK (pair address nat) ;
+             IF_NONE { PUSH string "option is None" ; FAILWITH } {} ;
+             PUSH nat 0 ;
+             DIG 6 ;
+             DUP 3 ;
+             CDR ;
+             PAIR ;
+             DUP 3 ;
+             CAR ;
+             DIG 7 ;
+             PAIR ;
+             PAIR ;
+             PAIR ;
+             DIG 4 ;
+             SWAP ;
+             EXEC ;
+             DIG 2 ;
+             DUP 4 ;
+             CDR ;
+             CDR ;
+             CAR ;
+             PAIR ;
+             DUP 4 ;
+             CDR ;
+             CAR ;
+             PAIR ;
+             DIG 3 ;
+             CAR ;
+             PAIR ;
+             DUP ;
+             CDR ;
+             CDR ;
+             DUP 4 ;
+             CAR ;
+             DUP 3 ;
+             CDR ;
+             CAR ;
+             CAR ;
+             PAIR ;
+             PAIR ;
+             SWAP ;
+             CAR ;
+             PAIR ;
+             DUP ;
+             CDR ;
+             CDR ;
+             CDR ;
+             DIG 3 ;
+             CDR ;
+             PAIR ;
+             SWAP ;
+             DUP ;
+             DUG 2 ;
+             CDR ;
+             CAR ;
+             PAIR ;
+             SWAP ;
+             CAR ;
+             PAIR ;
+             NIL operation ;
+             DIG 2 ;
+             CONS ;
+             PAIR } } }
+

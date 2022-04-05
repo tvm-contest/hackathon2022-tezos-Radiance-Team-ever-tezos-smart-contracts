@@ -1,2 +1,1 @@
-# EverTezosSmartcontracts
-
+# Everscale Tezos Bridge Smartcontracts

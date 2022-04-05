@@ -1,0 +1,66 @@
+{
+	"ABI version": 2,
+	"version": "2.2",
+	"header": ["time", "expire"],
+	"functions": [
+		{
+			"name": "constructor",
+			"inputs": [
+				{"name":"owner","type":"address"},
+				{"name":"addrTransferTokenProxy","type":"address"}
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "setConfiguration",
+			"inputs": [
+				{"name":"addrTransferTokenProxy","type":"address"}
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "transferToken",
+			"inputs": [
+				{"name":"gasTo","type":"address"},
+				{"name":"addrRecipient","type":"address"},
+				{"name":"amount","type":"uint128"}
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "burnToken",
+			"inputs": [
+				{"name":"amount","type":"uint128"},
+				{"name":"payload","type":"cell"}
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "getInfo",
+			"inputs": [
+			],
+			"outputs": [
+				{"name":"owner","type":"address"},
+				{"name":"addrTransferTokenProxy","type":"address"},
+				{"components":[{"name":"sender_msg","type":"address"},{"name":"addrRecipient","type":"address"},{"name":"amount","type":"uint128"}],"name":"_transferCallbacks","type":"map(uint128,tuple)"}
+			]
+		}
+	],
+	"data": [
+	],
+	"events": [
+	],
+	"fields": [
+		{"name":"_pubkey","type":"uint256"},
+		{"name":"_timestamp","type":"uint64"},
+		{"name":"_constructorFlag","type":"bool"},
+		{"name":"_owner","type":"address"},
+		{"name":"_addrTransferTokenProxy","type":"address"},
+		{"name":"_idCallback","type":"uint128"},
+		{"components":[{"name":"sender_msg","type":"address"},{"name":"addrRecipient","type":"address"},{"name":"amount","type":"uint128"}],"name":"transferCallbacks","type":"map(uint128,tuple)"}
+	]
+}

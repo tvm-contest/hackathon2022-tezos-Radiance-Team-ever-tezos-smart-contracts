@@ -1,0 +1,108 @@
+{
+	"ABI version": 2,
+	"version": "2.2",
+	"header": ["time", "expire"],
+	"functions": [
+		{
+			"name": "constructor",
+			"inputs": [
+				{"name":"owner","type":"address"},
+				{"components":[{"name":"bridge","type":"address"},{"name":"eventABI","type":"bytes"},{"name":"eventInitialBalance","type":"uint64"},{"name":"eventCode","type":"cell"}],"name":"basicConfiguration","type":"tuple"},
+				{"components":[{"name":"chainId","type":"uint32"},{"name":"eventEmitter","type":"uint160"},{"name":"eventBlocksToConfirm","type":"uint16"},{"name":"proxy","type":"address"},{"name":"startBlockNumber","type":"uint32"},{"name":"endBlockNumber","type":"uint32"}],"name":"networkConfiguration","type":"tuple"}
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "setConfiguration",
+			"inputs": [
+				{"components":[{"name":"bridge","type":"address"},{"name":"eventABI","type":"bytes"},{"name":"eventInitialBalance","type":"uint64"},{"name":"eventCode","type":"cell"}],"name":"basicConfiguration","type":"tuple"},
+				{"components":[{"name":"chainId","type":"uint32"},{"name":"eventEmitter","type":"uint160"},{"name":"eventBlocksToConfirm","type":"uint16"},{"name":"proxy","type":"address"},{"name":"startBlockNumber","type":"uint32"},{"name":"endBlockNumber","type":"uint32"}],"name":"networkConfiguration","type":"tuple"}
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "deployEvent",
+			"inputs": [
+				{"components":[{"name":"eventID","type":"uint32"},{"name":"eventBlockHash","type":"bytes"},{"name":"eventData","type":"cell"},{"name":"eventTransactionHash","type":"bytes"}],"name":"eventVoteData","type":"tuple"}
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "deriveEventAddress",
+			"inputs": [
+				{"name":"answerId","type":"uint32"},
+				{"components":[{"name":"eventID","type":"uint32"},{"name":"eventBlockHash","type":"bytes"},{"name":"eventData","type":"cell"},{"name":"eventTransactionHash","type":"bytes"}],"name":"eventVoteData","type":"tuple"}
+			],
+			"outputs": [
+				{"name":"eventContract","type":"address"}
+			]
+		},
+		{
+			"name": "getDetails",
+			"inputs": [
+				{"name":"answerId","type":"uint32"}
+			],
+			"outputs": [
+				{"components":[{"name":"bridge","type":"address"},{"name":"eventABI","type":"bytes"},{"name":"eventInitialBalance","type":"uint64"},{"name":"eventCode","type":"cell"}],"name":"basicConfiguration","type":"tuple"},
+				{"components":[{"name":"chainId","type":"uint32"},{"name":"eventEmitter","type":"uint160"},{"name":"eventBlocksToConfirm","type":"uint16"},{"name":"proxy","type":"address"},{"name":"startBlockNumber","type":"uint32"},{"name":"endBlockNumber","type":"uint32"}],"name":"networkConfiguration","type":"tuple"}
+			]
+		},
+		{
+			"name": "getType",
+			"inputs": [
+				{"name":"answerId","type":"uint32"}
+			],
+			"outputs": [
+				{"name":"_type","type":"uint8"}
+			]
+		},
+		{
+			"name": "eventConfirmedCallback",
+			"inputs": [
+				{"components":[{"components":[{"name":"eventID","type":"uint32"},{"name":"eventBlockHash","type":"bytes"},{"name":"eventData","type":"cell"},{"name":"eventTransactionHash","type":"bytes"}],"name":"voteData","type":"tuple"},{"name":"configuration","type":"address"},{"name":"chainId","type":"uint32"},{"name":"bridge","type":"address"}],"name":"eventInitData","type":"tuple"},
+				{"name":"gasBackAddress","type":"address"}
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "_basicConfiguration",
+			"inputs": [
+			],
+			"outputs": [
+				{"components":[{"name":"bridge","type":"address"},{"name":"eventABI","type":"bytes"},{"name":"eventInitialBalance","type":"uint64"},{"name":"eventCode","type":"cell"}],"name":"_basicConfiguration","type":"tuple"}
+			]
+		},
+		{
+			"name": "_networkConfiguration",
+			"inputs": [
+			],
+			"outputs": [
+				{"components":[{"name":"chainId","type":"uint32"},{"name":"eventEmitter","type":"uint160"},{"name":"eventBlocksToConfirm","type":"uint16"},{"name":"proxy","type":"address"},{"name":"startBlockNumber","type":"uint32"},{"name":"endBlockNumber","type":"uint32"}],"name":"_networkConfiguration","type":"tuple"}
+			]
+		}
+	],
+	"data": [
+	],
+	"events": [
+		{
+			"name": "NewEventContract",
+			"inputs": [
+				{"name":"eventContract","type":"address"}
+			],
+			"outputs": [
+			]
+		}
+	],
+	"fields": [
+		{"name":"_pubkey","type":"uint256"},
+		{"name":"_timestamp","type":"uint64"},
+		{"name":"_constructorFlag","type":"bool"},
+		{"name":"_owner","type":"address"},
+		{"components":[{"name":"bridge","type":"address"},{"name":"eventABI","type":"bytes"},{"name":"eventInitialBalance","type":"uint64"},{"name":"eventCode","type":"cell"}],"name":"_basicConfiguration","type":"tuple"},
+		{"components":[{"name":"chainId","type":"uint32"},{"name":"eventEmitter","type":"uint160"},{"name":"eventBlocksToConfirm","type":"uint16"},{"name":"proxy","type":"address"},{"name":"startBlockNumber","type":"uint32"},{"name":"endBlockNumber","type":"uint32"}],"name":"_networkConfiguration","type":"tuple"}
+	]
+}

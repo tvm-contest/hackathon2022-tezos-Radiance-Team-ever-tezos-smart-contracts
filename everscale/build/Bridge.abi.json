@@ -1,0 +1,86 @@
+{
+	"ABI version": 2,
+	"version": "2.2",
+	"header": ["time", "expire"],
+	"functions": [
+		{
+			"name": "constructor",
+			"inputs": [
+				{"name":"owner","type":"address"}
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "setConfigurations",
+			"inputs": [
+				{"name":"configurations","type":"address[]"}
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "setKeys",
+			"inputs": [
+				{"name":"keys","type":"uint256[]"}
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "getRelayKeys",
+			"inputs": [
+				{"name":"answerId","type":"uint32"}
+			],
+			"outputs": [
+				{"name":"keys","type":"uint256[]"}
+			]
+		},
+		{
+			"name": "getInfo",
+			"inputs": [
+			],
+			"outputs": [
+				{"name":"owner","type":"address"},
+				{"name":"configurations","type":"address[]"},
+				{"name":"keys","type":"uint256[]"}
+			]
+		},
+		{
+			"name": "_owner",
+			"inputs": [
+			],
+			"outputs": [
+				{"name":"_owner","type":"address"}
+			]
+		},
+		{
+			"name": "_configurations",
+			"inputs": [
+			],
+			"outputs": [
+				{"name":"_configurations","type":"address[]"}
+			]
+		},
+		{
+			"name": "_keys",
+			"inputs": [
+			],
+			"outputs": [
+				{"name":"_keys","type":"uint256[]"}
+			]
+		}
+	],
+	"data": [
+	],
+	"events": [
+	],
+	"fields": [
+		{"name":"_pubkey","type":"uint256"},
+		{"name":"_timestamp","type":"uint64"},
+		{"name":"_constructorFlag","type":"bool"},
+		{"name":"_owner","type":"address"},
+		{"name":"_configurations","type":"address[]"},
+		{"name":"_keys","type":"uint256[]"}
+	]
+}

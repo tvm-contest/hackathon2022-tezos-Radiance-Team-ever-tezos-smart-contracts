@@ -1,0 +1,4 @@
+NET_SELECTOR=1
+MAIN_GIVER_ADDRESS=(set address of wallet)
+MAIN_GIVER_PUBLIC=(set public key of wallet)
+MAIN_GIVER_SECRET=(set private key of wallet)

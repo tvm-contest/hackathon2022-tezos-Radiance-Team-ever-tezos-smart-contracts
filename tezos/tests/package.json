@@ -1,0 +1,22 @@
+{
+  "name": "tezos-tests",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Radiance DefiSpace team",
+  "license": "ISC",
+  "dependencies": {
+    "@microsoft/signalr": "^6.0.2",
+    "@taquito/signer": "^11.2.0",
+    "@taquito/taquito": "^11.2.0",
+    "ascii-hex": "^1.0.1",
+    "axios": "^0.26.0",
+    "convert-string": "^0.1.0",
+    "str-encode": "^1.0.5"
+  },
+  "devDependencies": {
+    "typescript": "^4.5.5"
+  }
+}
