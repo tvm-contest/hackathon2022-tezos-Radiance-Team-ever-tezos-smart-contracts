@@ -1,7 +1,7 @@
 {
-  "name": "tezos-tests",
+  "name": "bridge-tezos-everscale-tests",
   "version": "1.0.0",
-  "description": "",
+  "description": "bridge-tezos-everscale-tests",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

@@ -1,7 +1,8 @@
 {
-  "name": "bridge-tezos-test",
+  "name": "bridge-everscale-tezos-tests",
   "version": "0.1.0",
-  "description": "Radiance bridge-tezos smartcontracts",
+  "description": "bridge-everscale-tezos-tests",
+  "author": "Radiance DefiSpace team",
   "main": "index.js",
   "scripts": {
     "compile": "node ./compile.js"
