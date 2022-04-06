@@ -19,8 +19,8 @@ Tezos smartcontracts:
    - [`tezos/fa2_single_asset_with_hooks_assembl.mligo`](tezos/fa2_single_asset_with_hooks_assembl.mligo) - standart FA2 single asset token smartcontract from https://github.com/oxheadalpha/smart-contracts/tree/master/single_asset
      this contract use onchain token metadata storage and have 8 interact endpoints:
      - `update_operators`  https://better-call.dev/hangzhou2net/KT1Ua1r4kEBUQ4vP546QyCc5WK6sadvesoPu/interact?entrypoint=update_operators with two options:
-      - `add_operator`
-      - `remove_operator`
+       * `add_operator`
+       * `remove_operator`
      - `transfer`  https://better-call.dev/hangzhou2net/KT1Ua1r4kEBUQ4vP546QyCc5WK6sadvesoPu/interact?entrypoint=transfer
      - `set_admin`  https://better-call.dev/hangzhou2net/KT1Ua1r4kEBUQ4vP546QyCc5WK6sadvesoPu/interact?entrypoint=set_admin
      - `confirm_admin`  https://better-call.dev/hangzhou2net/KT1Ua1r4kEBUQ4vP546QyCc5WK6sadvesoPu/interact?entrypoint=confirm_admin
