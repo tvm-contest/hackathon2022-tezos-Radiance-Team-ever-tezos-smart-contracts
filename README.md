@@ -77,7 +77,7 @@ Tezos smartcontracts:
       - `transferTokenCallback`
       - `burnTokenCallback`
 
-    - smart-comtracts implemetation:
+    - smart-contracts implemetation:
     ```
     eDEX_TokenRoot=0:0d9b85d42c4824fb8b92ffc122168d92b431b6814686fa04af25277a987683a5
     edex_transfer_TokenProxy=0:098aff3c60b1b8952621927966fd76b67912ca4a5ddf14acd94c00e6bafdee7f
