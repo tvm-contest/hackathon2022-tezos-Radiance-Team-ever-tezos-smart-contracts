@@ -29,8 +29,8 @@ Tezos smartcontracts:
      - `burn_tokens`  https://better-call.dev/hangzhou2net/KT1Ua1r4kEBUQ4vP546QyCc5WK6sadvesoPu/interact?entrypoint=burn_tokens
      - `balance_of`  https://better-call.dev/hangzhou2net/KT1Ua1r4kEBUQ4vP546QyCc5WK6sadvesoPu/interact?entrypoint=balance_of for onchain check balance by other smartcontracts
 
-   - [`tezos/fa2_vault.ligo`](tezos/fa2_vault.ligo) - vault smartcontract for storage and delivery FA2 single asset token with bridge interaction
-   this contract have 3 interact endpoints:
+   - [`tezos/fa2_vault.ligo`](tezos/fa2_vault.ligo) - vault smartcontract for storage and delivery FA2 single asset token with bridge interaction.
+     This contract have 3 interact endpoints:
      - `balance_of_callback` https://better-call.dev/hangzhou2net/KT1RAWE7SBg7NH7UuduktHjJv7gXhkEdf5ya/interact?entrypoint=balance_of_callback
      - `deposit_to_vault` https://better-call.dev/hangzhou2net/KT1RAWE7SBg7NH7UuduktHjJv7gXhkEdf5ya/interact?entrypoint=deposit_to_vault
      - `withdraw_from_vault` https://better-call.dev/hangzhou2net/KT1RAWE7SBg7NH7UuduktHjJv7gXhkEdf5ya/interact?entrypoint=withdraw_from_vault
